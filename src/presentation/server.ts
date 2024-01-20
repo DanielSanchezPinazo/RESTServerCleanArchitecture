@@ -11,7 +11,7 @@ interface Options {
 export class Server {
 
     private app = express();
-    private readonly port: number; // a los readonly sólo se les pueden asignar valores en el constructor
+    private readonly port: number; // a los readonly sólo se les pueden asignar valores en el constructor, además de al declararlos
     private readonly publicPath: string;
 
     constructor( options: Options ) {

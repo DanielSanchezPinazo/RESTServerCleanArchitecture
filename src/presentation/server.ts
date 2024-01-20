@@ -26,7 +26,7 @@ export class Server {
 
         //* Public Folder
         this.app.use( express.static( this.publicPath ));
-
+        //* Ayuda al Router de las SPA
         this.app.get("*", ( request, response ) => {
 
             const indexPath = path.join( __dirname + `../../../${this.publicPath}/index.html` );

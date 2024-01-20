@@ -88,7 +88,7 @@ export class TodosController {
         res.json( todo );
 
         todos.splice( todos.indexOf( todo ), 1 );
-    }
+    };
 }
 
 

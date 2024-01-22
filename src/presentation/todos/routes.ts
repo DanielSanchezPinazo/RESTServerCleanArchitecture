@@ -9,7 +9,7 @@ export class TodoRoutes {
         const todoController = new TodosController();
 
         //router.get("/", (req, res) => todoController.getTodos( req, res ));
-        //* Esto es equivalente a lo de arriba:
+        //* La línea de abajo es equivalente a lo de arriba:
         router.get("/", todoController.getTodos);
         router.get("/:id", todoController.getTodoById);
 

@@ -1,6 +1,6 @@
 
-import { log } from "console";
 import { Request, Response } from "express";
+import { prisma } from "../../data/postgres";
 
 
 const todos = [
@@ -35,8 +35,14 @@ export class TodosController {
 
         const { text } = req.body;
         if ( !text ) return res.status(400).json({ error: `Text property is required.` });
+
+        prisma.todo.create({
+            data: { text }
+            // esto es lo mismo que data: { text: text }
+        });
+
         const newTodo = {
-            id: todos.length + 1,
+            id: todos[todos.length - 1].id + 1,
             text: text,
             completedAt: null
         };
@@ -59,7 +65,7 @@ export class TodosController {
         const { text, completedAt } = req.body;
 
         todo.text = text || todo.text; 
-        ( completedAt === "null" )
+        ( completedAt === "null" || !completedAt )
             ? todo.completedAt = null
             : todo.completedAt = new Date( completedAt || todo.completedAt );
 

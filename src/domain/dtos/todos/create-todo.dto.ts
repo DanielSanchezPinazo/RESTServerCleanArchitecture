@@ -1,8 +1,9 @@
 
 export class CreateTodoDto {
 
-    private constructor( public readonly text: string, ) {
-        
+    private constructor( public readonly text: string ) {
+//! En TypeScript, cuando declaras un parámetro en el constructor con un modificador de acceso 
+//! (public, private, readonly, etc.), automáticamente se considera una propiedad de la clase. 
     };
 
     static create( props: {[key: string]: any}): [string?, CreateTodoDto?] {
